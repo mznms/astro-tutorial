@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "私について";
 
@@ -10,10 +10,17 @@ const identity = {
   hobbies: ["写真", "バードウォッチング", "野球"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "ドキュメントの執筆"];
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Astro",
+  "ドキュメントの執筆",
+];
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 const skillColor = "navy";
@@ -43,9 +50,15 @@ const textCase = "uppercase";
   <p>以下は私に関するいくつかの事実です。</p>
   <ul>
     <li>私の名前は{identity.firstName}です。</li>
-    <li>{identity.country}に住んでおり、{identity.occupation}として働いています。</li>
-    {identity.hobbies.length >= 2 &&
-      <li>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>
+    <li>
+      {identity.country}に住んでおり、{identity.occupation}として働いています。
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。
+        </li>
+      )
     }
   </ul>
   <p>私のスキルは以下の通りです。</p>
@@ -54,6 +67,16 @@ const textCase = "uppercase";
   </ul>
 
   {happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
-  {finished && <p>I finished this tutorial! このチュートリアルを終えました！</p>}
-  {goal === 3 ? <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
+  {
+    finished && (
+      <p>I finished this tutorial! このチュートリアルを終えました！</p>
+    )
+  }
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p>
+    ) : (
+      <p>My goal is not 3 days. 3日が目標ではありません。</p>
+    )
+  }
 </BaseLayout>
